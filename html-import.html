@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<title>Chamaileon SDK - Thumbnails</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+
+		<script src='https://plugins.chamaileon.io/static/chamaileonSdk.js'></script>
+
+		<style>
+			iframe {
+				width: 100%;
+				height: 800px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>Chamaileon logo</div>
+		<div id="card"></div>
+
+		<script>
+			(async function() {
+			const apiKey = 'Y8mbu7S5Qh4cyCqJCVBn'
+			const documentUrl = 'https://chamaileon-sdk.github.io/example-jsons/jsons/business-promo.json'
+
+			const accessTokenRequest = await fetch('https://sdk-api.chamaileon.io/api/v1/tokens/generate', {
+				method: 'GET',
+				headers: {
+					'Authorization': `Bearer ${apiKey}`,
+				},
+			})
+
+			if (!accessTokenRequest.ok) {
+				this.authErrorInfo = true
+
+				return
+			}
+
+			const accessTokenResponse = await accessTokenRequest.json()
+			const accessToken = accessTokenResponse.result
+
+			const chamaileonPlugins = await chamaileonSdk.init({
+				mode: 'serverless',
+				accessToken,
+				whitelabel: {
+					urls: {
+						splashScreen: 'https://chamaileon-sdk.github.io/splashscreen-and-logo-examples/splashScreen.html',
+						createLogoJS: 'https://chamaileon-sdk.github.io/splashscreen-and-logo-examples/createLogo.js',
+					},
+					colors: {
+						'primary': '#FF0000',
+						'secondary': '#009f4a',
+						'red': '#ff5546',
+						'darkBlue': '#2d3291',
+						'darkGreen': '#00af6e',
+						'lightGreen': '#50d791',
+						'weirdGreen': '#50d791',
+						'pink': '#ff91a0',
+						'yellow': '#ffd23c',
+					}
+				}
+			})
+
+			const documentResponse = await fetch(documentUrl, { method: 'GET' })
+			const documentJson = await documentResponse.json()
+
+			chamaileonPlugins.openHtmlImport({
+				container: document.getElementById("card"),
+				hooks: {
+					onImportFinished: (params) => {
+						console.log("import done");
+						console.log(params);
+					}
+				}
+			})
+		}())
+		</script>
+	</body>
+</html>

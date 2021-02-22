@@ -1,0 +1,166 @@
+:root {
+	font-size: 16px;
+	line-height: 18px;
+
+	--color-primary: #2D3291;
+	--color-dark-grey: #aaaaaa;
+	--color-light-grey: #efefef;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+
+	font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 3rem;
+
+	text-align: center;
+}
+
+h2 {
+	font-weight: 600;
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-weight: 600;
+	font-size: 2rem;
+}
+
+input {
+	border: 1px solid var(--color-primary);
+	border-radius: 20px;
+	padding: 10px;
+
+	outline: none;
+}
+
+button {
+	display: block;
+
+	border-radius: 20px;
+	outline: none;
+
+	padding: 10px 20px;
+
+	background: #ffffff;
+	color: var(--color-primary);
+
+	border: 1px solid var(--color-primary);
+
+	transition: 0.2s all ease-in;
+}
+
+button:hover {
+	color: #ffffff;
+	background: var(--color-primary);
+}
+
+textarea {
+	border: 1px solid var(--color-primary);
+}
+
+header {
+	position: relative;
+
+	border-bottom: 2px solid var(--color-primary);
+}
+
+main {
+	position: relative;
+
+	width: 100%;
+	max-width: 1280px;
+
+	margin: 50px auto;
+}
+
+footer {
+	position: relative;
+	overflow: hidden;
+
+	height: 200px;
+
+	padding: 20px 0;
+
+	text-align: center;
+	color: var(--color-dark-grey);
+
+	border-top: 1px dotted var(--color-primary);
+}
+
+#logo-wrapper {
+	position: relative;
+	width: 240px;
+	margin: 20px auto;
+}
+
+#logo {
+	width: 240px;
+	fill: var(--color-primary);
+}
+
+#logo-badge {
+	position: absolute;
+
+	min-width: 50px;
+	right: -50px;
+	bottom: -8px;
+
+	background: var(--color-primary);
+	color: white;
+	padding: 0 20px;
+	font-size: 0.8rem;
+	border-radius: 15px;
+	text-align: center;
+}
+
+#footer-logo {
+	position: absolute;
+	width: 200px;
+	right: -50px;
+	top: 50px;
+
+	fill: var(--color-light-grey);
+}
+
+#settings-button {
+	position: absolute;
+
+	right: 20px;
+	top: 5px;
+}
+
+#settings {
+	display: none;
+
+	position: relative;
+
+	width: 100%;
+	max-width: 1280px;
+
+	margin: 20px auto;
+}
+
+#settings .settings-input {
+	padding: 10px 100px;
+}
+
+#settings label {
+	display: block;
+}
+
+#settings input {
+	width: 100%;
+}
+
+#github-link {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
