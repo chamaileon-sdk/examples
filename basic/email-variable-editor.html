@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Email Thumbnails - Chamaileon SDK</title>
+		<title>Email Variable Editor - Chamaileon SDK</title>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 		<link href="/css/style.css" rel="stylesheet">
@@ -41,14 +41,14 @@
 			<button id="settings-button">Settings</button>
 		</header>
 		<main id="main">
-			<h1>Email Editor</h1>
+			<h1>Email Variable Editor</h1>
 
 			<section id="content">
 				<textarea id="exampleJson">Loading...</textarea>
 				<div id="description">
 					<p>In this example, the JSON in the textarea on the left hand side will be loaded into the email editor, when you click the 'Open Email Editor' button.</p>
 					<p>When the 'onSave' hook is invoked, the textarea will be updated with the new JSON.</p>
-					<button id="showExample">Open Email Editor</button>
+					<button id="showExample">Open Email Variable Editor</button>
 				</div>
 			</section>
 		</main>
@@ -76,18 +76,43 @@
 
 				const showExampleButton = document.getElementById('showExample')
 				showExampleButton.style.display = 'inline-block'
-				showExampleButton.onclick = () => {
+				showExampleButton.onclick = async () => {
 					const documentJson = JSON.parse(exampleJsonTextArea.value)
 
 					documentJson.title = 'demo'
 
-					chamaileonPlugins.editEmail({
+					const variableEditor = await chamaileonPlugins.previewVariableEmail({
 						document: documentJson,
 						hooks: {
-							onSave: (params) => {
-								exampleJsonTextArea.value = JSON.stringify(params.emailJson)
+							onButtonClicked: ({ buttonId }) => {
+								if (buttonId === 'close') {
+									variableEditor.close()
+								}
 							}
-						}
+						},
+						buttons: {
+							header: {
+								left: [{
+									id: 'close',
+									icon: 'arrow_back'
+								}],
+								right: [
+									{
+										id: 'next',
+										label: 'Next'
+									}
+								]
+							},
+							footer: {
+								left: [
+									{
+										id: 'prev',
+										label: 'Prev'
+									}
+								]
+							}
+						},
+						container: document.body
 					})
 				}
 			}
