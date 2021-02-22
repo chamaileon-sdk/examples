@@ -11,9 +11,19 @@
 			}
 
 			#exampleJson {
-				width: 50%;
+				width: 48%;
 				height: 300px;
 			}
+
+			#content {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			#description {
+				width: 48%;
+			}
+
 			#thumbnails {
 				width: 50%;
 			}
@@ -21,6 +31,10 @@
 			#thumbnails-small {
 				display: flex;
 				flex-direction: row;
+			}
+
+			#showExample {
+				display: none;
 			}
 		</style>
 	</head>
@@ -37,10 +51,17 @@
 		</header>
 		<main id="main">
 			<h1>Email Thumbnails</h1>
-			<p>In this example, ...</p>
-			<button id="showExample">Show Example</button>
-			<section id="example">
+
+			<section id="content">
 				<textarea id="exampleJson">Loading...</textarea>
+				<div id="description">
+					<p>In this example, the JSON in the textarea on the left hand side will be loaded into the thumbnail plugin three times.</p>
+					<p>The first one is a bigger thumbnail that is scrollable, the second and the third are smaller and non-scrollable.</p>
+					<button id="showExample">Load Thumbnails</button>
+				</div>
+			</section>
+			
+			<section id="example">
 				<div id="thumbnails">
 					<div id="thumbnail-large"></div>
 					<div id="thumbnails-small">
@@ -69,39 +90,49 @@
 				const documentJson = await documentResponse.json()
 
 				document.getElementById('exampleJson').value = JSON.stringify(documentJson)
-	
-				chamaileonPlugins.createThumbnail({
-					emailJSON: documentJson.body,
-					width: 640,
-					height: 480,
-					scale: 1.01,
-					scroll: true,
-					container: document.getElementById('thumbnail-large')
-				})
 
-				chamaileonPlugins.createThumbnail({
-					emailJSON: documentJson.body,
-					width: 640,
-					height: 480,
-					scale: 0.5,
-					container: document.getElementById('thumbnail-small-1')
-				})
+				const showExampleButton = document.getElementById('showExample')
+				showExampleButton.style.display = 'inline-block'
+				showExampleButton.onclick = () => {
+					document.getElementById('example').style.display = 'flex'
 
-				chamaileonPlugins.createThumbnail({
-					emailJSON: documentJson.body,
-					width: 640,
-					height: 480,
-					scale: 0.5,
-					container: document.getElementById('thumbnail-small-2')
-				})
+					const containerLarge = document.getElementById('thumbnail-large')
+					const containerSmall1 = document.getElementById('thumbnail-small-1')
+					const containerSmall2 = document.getElementById('thumbnail-small-2')
+
+					containerLarge.innerHTML = ''
+					containerSmall1.innerHTML = ''
+					containerSmall2.innerHTML = ''
+
+					const documentJson = JSON.parse(document.getElementById('exampleJson').value)
+
+					chamaileonPlugins.createThumbnail({
+						emailJSON: documentJson.body,
+						width: 640,
+						height: 480,
+						scale: 1,
+						scroll: true,
+						container: containerLarge
+					})
+
+					chamaileonPlugins.createThumbnail({
+						emailJSON: documentJson.body,
+						width: 640,
+						height: 480,
+						scale: 0.5,
+						container: containerSmall1
+					})
+
+					chamaileonPlugins.createThumbnail({
+						emailJSON: documentJson.body,
+						width: 640,
+						height: 480,
+						scale: 0.5,
+						container: containerSmall2
+					})
+				}
 			}
-
-			const showExampleButton = document.getElementById('showExample')
-			showExampleButton.onclick = () => {
-				showExampleButton.style.display = 'none'
-				document.getElementById('example').style.display = 'flex'
-				main()
-			}
+			main()
 		</script>
 	</body>
 </html>
