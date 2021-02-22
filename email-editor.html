@@ -1,164 +1,106 @@
 <html>
 	<head>
-		<title>Chamaileon SDK - Thumbnails</title>
+		<title>Email Thumbnails - Chamaileon SDK</title>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-		<link href="style.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
 
-		<script src='https://plugins.chamaileon.io/static/chamaileonSdk.js'></script>
+		<style>
+			#example {
+				display: none;
+			}
+
+			#exampleJson {
+				width: 48%;
+				height: 300px;
+			}
+
+			#content {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			#description {
+				width: 48%;
+			}
+
+			#thumbnails {
+				width: 50%;
+			}
+
+			#thumbnails-small {
+				display: flex;
+				flex-direction: row;
+			}
+
+			#showExample {
+				display: none;
+			}
+		</style>
 	</head>
 	<body>
-		<div>Chamaileon logo</div>
-		<div id="card"></div>
+		<header>
+			<a id="github-link" href="https://github.com/chamaileon-sdk/examples"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_white_ffffff.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+			<div id="logo-wrapper">
+				<a href="/">
+					<div id="logo"></div>
+					<div id="logo-badge">SDK Examples</div>
+				</a>
+			</div>
+			<button id="settings-button">Settings</button>
+		</header>
+		<main id="main">
+			<h1>Email Editor</h1>
 
+			<section id="content">
+				<textarea id="exampleJson">Loading...</textarea>
+				<div id="description">
+					<p>In this example, the JSON in the textarea on the left hand side will be loaded into the email editor, when you click the 'Open Email Editor' button.</p>
+					<p>When the 'onSave' hook is invoked, the textarea will be updated with the new JSON.</p>
+					<button id="showExample">Open Email Editor</button>
+				</div>
+			</section>
+		</main>
+		<footer>
+			All rights reserved.
+			<div id="footer-logo"></div>
+		</footer>
+
+		<script src='https://plugins.chamaileon.io/static/chamaileonSdk.js'></script>
+		<script src="/js/chamaileonLogo.js"></script>
+		<script src="/js/initDemo.js"></script>
+		<script src="/js/initChamaileonSDK.js"></script>
 		<script>
-			(async function() {
-			const apiKey = 'Y8mbu7S5Qh4cyCqJCVBn'
-			const documentUrl = 'https://chamaileon-sdk.github.io/example-jsons/jsons/business-promo.json'
+			async function main() {
+				const documentUrl = 'https://chamaileon-sdk.github.io/example-jsons/jsons/business-promo.json'
+	
+				const chamaileonPlugins = await initChamaileonSdk()
+	
+				const documentResponse = await fetch(documentUrl, { method: 'GET' })
+				const documentJson = await documentResponse.json()
 
-			const accessTokenRequest = await fetch('https://sdk-api.chamaileon.io/api/v1/tokens/generate', {
-				method: 'GET',
-				headers: {
-					'Authorization': `Bearer ${apiKey}`,
-				},
-			})
+				const exampleJsonTextArea = document.getElementById('exampleJson')
 
-			if (!accessTokenRequest.ok) {
-				this.authErrorInfo = true
+				exampleJsonTextArea.value = JSON.stringify(documentJson)
 
-				return
-			}
+				const showExampleButton = document.getElementById('showExample')
+				showExampleButton.style.display = 'inline-block'
+				showExampleButton.onclick = () => {
+					const documentJson = JSON.parse(exampleJsonTextArea.value)
 
-			const accessTokenResponse = await accessTokenRequest.json()
-			const accessToken = accessTokenResponse.result
+					documentJson.title = 'demo'
 
-			const chamaileonPlugins = await chamaileonSdk.init({
-				mode: 'serverless',
-				accessToken,
-				whitelabel: {
-					urls: {
-						splashScreen: 'https://chamaileon-sdk.github.io/splashscreen-and-logo-examples/splashScreen.html',
-						createLogoJS: 'https://chamaileon-sdk.github.io/splashscreen-and-logo-examples/createLogo.js',
-					},
-					colors: {
-						'primary': '#FF0000',
-						'secondary': '#009f4a',
-						'red': '#ff5546',
-						'darkBlue': '#2d3291',
-						'darkGreen': '#00af6e',
-						'lightGreen': '#50d791',
-						'weirdGreen': '#50d791',
-						'pink': '#ff91a0',
-						'yellow': '#ffd23c',
-					}
-				}
-			})
-
-			const documentResponse = await fetch(documentUrl, { method: 'GET' })
-			const documentJson = await documentResponse.json()
-
-			const userData = {
-				name: 'John',
-				avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgVUEjaWnHvhNaEy1-Jl6Ljvi7ahounqegSQ',
-			}
-
-			const variables = [
-				{
-					'type': 'color',
-					'name': '$primaryColor',
-					'value': '#4491A2'
-				},
-				{
-					'type': 'image',
-					'name': '$linkedinIcon',
-					'value': 'https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-128.png'
-				},
-				{
-					'type': 'text',
-					'name': '$welcomeText',
-					'value': 'Hello World!'
-				}
-
-			]
-
-			let emailJsonToLoad = { // starting with an empty email
-					'eid' : 'root',
-					'type' : 'body',
-					'children' : [],
-					'attrs' : {
-						'usedColors' : [
-							'#595959',
-							'#000000',
-							'#cccccc',
-							'#cc0000',
-							'#FCFCFC',
-							'#5555ff',
-							'#FDFDFD',
-							'#FBFBFB',
-							'#999999',
-							'#f2f2f2',
-							'#ffffff'
-						]
-					},
-					'style' : {
-						'background-color' : '#FFFFFF',
-						'background-position' : 'center center',
-						'background-repeat' : 'no-repeat'
-					},
-					'version' : '2.0.0'
-				}
-
-			const editorInstance = await chamaileonPlugins.editEmail({
-					title: 'Test Email',
-					user: userData,
-					document: {
-						title: "test",
-						variables,
-						body: documentJson.body
-					},
-					hooks: {
-					},
-					dropdownButtons: [
-						{
-							id: 'test-button-1',
-							label: 'Show preview',
-							icon: 'short_text',
-						},
-						{
-							id: 'test-button-2',
-							label: 'Get emailJson',
-							icon: 'short_text',
-						},
-						{
-							id: 'test-button-3',
-							label: 'Generate html',
-							icon: 'short_text',
-						},
-					],
-					blockLibraries: [
-						{
-							id: 'email-blocks',
-							label: 'Email\'s blocks',
-							accessLevel: 'readWrite'
-						},
-						{
-							id: 'john-doe-favs',
-							label: 'John Doe\'s Favorite Blocks',
-							accessLevel: 'readOnly'
+					chamaileonPlugins.editEmail({
+						document: documentJson,
+						hooks: {
+							onSave: (params) => {
+								exampleJsonTextArea.value = JSON.stringify(params.emailJson)
+							}
 						}
-					],
-					textInsertPluginButtons: [
-						{
-							label: 'Merge tags',
-							id: 'merge-tags',
-						}
-					],
-					canLockBlocks: true,
-					autoSaveInterval: 15000,
-				})
-		}())
-
-
+					})
+				}
+			}
+			main()
 		</script>
 	</body>
 </html>
