@@ -4,30 +4,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 		<link href="/css/style.css" rel="stylesheet">
-
-		<style>
-			#example {
-				display: none;
-			}
-
-			#exampleJson {
-				width: 48%;
-				height: 300px;
-			}
-
-			#content {
-				display: flex;
-				justify-content: space-between;
-			}
-
-			#description {
-				width: 48%;
-			}
-
-			#showExample {
-				display: none;
-			}
-		</style>
+		<link href="/basic/style.css" rel="stylesheet">
 	</head>
 	<body>
 		<header>
@@ -40,14 +17,17 @@
 			<button id="settings-button">Settings</button>
 		</header>
 		<main id="main">
-			<h1>Variable system</h1>
-
 			<section id="content">
-				<textarea id="exampleJson">Loading...</textarea>
-				<div id="description">
-					<p>In this example, the JSON in the textarea on the left hand side will be loaded into the email editor, when you click the 'Open Email Editor' button.</p>
-					<p>When the 'onSave' hook is invoked, the textarea will be updated with the new JSON.</p>
-					<button id="showExample">Open Email Variable Editor</button>
+				<div>
+					<h1>Email Variable Editor</h1>
+					<div id="description">
+						<p>In this example, the JSON in the textarea on the left hand side will be loaded into the email editor, when you click the 'Open Email Editor' button.</p>
+						<p>When the 'onSave' hook is invoked, the textarea will be updated with the new JSON.</p>
+						<button id="showExample">Open Email Variable Editor</button>
+					</div>
+				</div>
+				<div>
+					<textarea id="exampleJson">Loading...</textarea>
 				</div>
 			</section>
 		</main>

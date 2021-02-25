@@ -1,7 +1,7 @@
 const localStorageKey = 'chamaileonSdkDemoSettings'
 
 document.getElementById('logo').appendChild(chamaileonLogo({ withText: true }))
-document.getElementById('footer-logo').appendChild(chamaileonLogo())
+document.getElementById('nav-logo').appendChild(chamaileonLogo())
 
 function createSettingsSection() {
 	const settingsSection = document.createElement('section');

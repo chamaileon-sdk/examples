@@ -20,7 +20,7 @@ async function getAccessToken({ apiKey }) {
 	let accessTokenCache = JSON.parse(localStorage.getItem('chamaileonSdkAccessTokenCache'))
 	const now = new Date();
 
-	if (!accessTokenCache || !accessTokenCache.accessToken || now - accessTokenCache.createdAt > 3600000) {
+	if (!accessTokenCache || !accessTokenCache.accessToken || now - new Date(accessTokenCache.createdAt) > 3600000) {
 		const accessToken = await fetchAccessToken({ apiKey })
 
 		accessTokenCache = {
