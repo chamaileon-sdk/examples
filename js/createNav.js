@@ -15,10 +15,17 @@
 				</ul>
 			</li>
 			<li>
-				<a href="/variable-system/">Variable System</a>
+				<a href="/basic">Advanced Examples</a>
+				<ul>
+					<li><a href="/advanced/email-editor/">Email Editor</a></li>
+					<li><a href="/advanced/email-variable-editor/">Variable Editor</a></li>
+				</ul>
 			</li>
 			<li>
 				<a href="https://github.com/chamaileon-sdk/examples" target="_blank">View on Github</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/chamaileon_sdk" target="_blank">Follow us on Twitter for updates!</a>
 			</li>
 		</ul>
 		<div id="nav-logo"></div>

@@ -85,6 +85,7 @@
 	
 		const prevButton = { id: 'prev', label: 'Prev' }
 		const nextButton = { id: 'next', label: 'Next' }
+		const finishButton = { id: 'finish', label: 'Finish' }
 	
 		if (contentProp === 'content1') {
 			footerButtons.right.push(nextButton)
@@ -93,9 +94,10 @@
 			footerButtons.right.push(nextButton)
 		} else if (contentProp === 'content3') {
 			footerButtons.left.push(prevButton)
+			footerButtons.right.push(finishButton)
 		}
 	
-		const variableEditor = await chamaileonPlugins.previewVariableEmail({
+		const variableEditor = await chamaileonPlugins.editVariables({
 			document: {
 				title: 'demo',
 				variables: [
@@ -107,10 +109,14 @@
 			},
 			hooks: {
 				onButtonClicked: async ({ buttonId }) => {
+					const timeout = 500;
 					const actJson = await variableEditor.getJson()
 					if (buttonId === 'close') {
 						variableEditor.close()
 					}
+
+					logo.value = actJson.variables.find(e => e.name === "logo").value
+					primaryColor.value = actJson.variables.find(e => e.name === "primaryColor").value
 	
 					if (buttonId === 'swap-layout') {
 						if (layoutProp === 'layout1') {
@@ -122,7 +128,7 @@
 						variableEditor.close()
 						setTimeout(() => {
 							loadVariableEditor()
-						}, 1000);
+						}, timeout);
 					}
 	
 					if (buttonId === 'next') {
@@ -135,7 +141,7 @@
 						variableEditor.close()
 						setTimeout(() => {
 							loadVariableEditor()
-						}, 1000);
+						}, timeout);
 					}
 	
 					if (buttonId === 'prev') {
@@ -148,7 +154,12 @@
 						variableEditor.close()
 						setTimeout(() => {
 							loadVariableEditor()
-						}, 1000);
+						}, timeout);
+					}
+
+					if (buttonId === 'finish') {
+						updateThumbnails()
+						variableEditor.close()
 					}
 				}
 			},
@@ -168,6 +179,70 @@
 			container: document.body
 		})
 	}
+
+	function updateThumbnails() {
+		const thumb1 = document.getElementById('thumbnail1')
+		const thumb2 = document.getElementById('thumbnail2')
+		const thumb3 = document.getElementById('thumbnail3')
+
+		thumb1.innerHTML = ''
+		thumb2.innerHTML = ''
+		thumb3.innerHTML = ''
+
+		chamaileonPlugins.createThumbnail({
+			document: {
+				variables: [
+					primaryColor,
+					logo,
+					...content.content1
+				],
+				body: {
+					...layouts[layoutProp].body
+				}
+			},
+			width: 640,
+			height: 480,
+			scale: 1,
+			scroll: false,
+			container: thumb1
+		})
+
+		chamaileonPlugins.createThumbnail({
+			document: {
+				variables: [
+					primaryColor,
+					logo,
+					...content.content2
+				],
+				body: {
+					...layouts[layoutProp].body
+				}
+			},
+			width: 640,
+			height: 480,
+			scale: 1,
+			scroll: false,
+			container: thumb2
+		})
+
+		chamaileonPlugins.createThumbnail({
+			document: {
+				variables: [
+					primaryColor,
+					logo,
+					...content.content3
+				],
+				body: {
+					...layouts[layoutProp].body
+				}
+			},
+			width: 640,
+			height: 480,
+			scale: 1,
+			scroll: false,
+			container: thumb3
+		})
+	}
 	
 	async function main() {
 		chamaileonPlugins = await initChamaileonSdk()
@@ -177,6 +252,8 @@
 	
 		documentResponse = await fetch('./layout2.json', { method: 'GET' })
 		layouts.layout2 = await documentResponse.json()
+
+		updateThumbnails()
 	
 		const showExampleButton = document.getElementById('showExample')
 		showExampleButton.style.display = 'inline-block'
@@ -184,4 +261,6 @@
 			loadVariableEditor()
 		}
 	}
+
+	main()
 }())

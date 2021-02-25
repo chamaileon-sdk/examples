@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Email Thumbnails - Chamaileon SDK</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
+
+		<style>
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="logo-wrapper">
+				<a href="/">
+					<div id="logo"></div>
+					<div id="logo-badge">SDK Examples</div>
+				</a>
+			</div>
+			<button id="settings-button">Settings</button>
+		</header>
+		<main id="main">
+			<h1>Chamaileon SDK Examples</h1>
+
+			<a href="/basic/email-thumbnail.html">Email Thumbnail</a>
+			<a href="/basic/email-preview.html">Email Preview</a>
+			<a href="/basic/email-editor.html">Email Editor</a>
+			<a href="/basic/email-variable-editor.html">Email Variable Editor</a>
+			<a href="/basic/email-html-import.html">Email HTML Import</a>
+		</main>
+		<footer>
+			All rights reserved.
+		</footer>
+
+		<script src="/js/chamaileonLogo.js"></script>
+		<script src="/js/createNav.js"></script>
+		<script>
+			document.getElementById('logo').appendChild(chamaileonLogo({ withText: true }))
+			document.getElementById('nav-logo').appendChild(chamaileonLogo())
+		</script>
+	</body>
+</html>

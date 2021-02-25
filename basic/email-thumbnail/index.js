@@ -19,7 +19,7 @@
 		const documentJson = JSON.parse(document.getElementById('exampleJson').value)
 
 		chamaileonPlugins.createThumbnail({
-			emailJSON: documentJson.body,
+			document: documentJson.body,
 			width: 640,
 			height: 480,
 			scale: 1,

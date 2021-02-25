@@ -4,7 +4,7 @@
 	const exampleJsonTextArea = document.getElementById('exampleJson')
 
 	const showExampleButton = document.getElementById('showExample')
-	showExampleButton.style.display = 'inline-block'
+	//showExampleButton.style.display = 'inline-block'
 	showExampleButton.onclick = () => {
 		chamaileonPlugins.openHtmlImport({
 			container: document.getElementById('import'),
