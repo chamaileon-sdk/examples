@@ -3,7 +3,7 @@
 	line-height: 18px;
 
 	--color-primary: #2D3291;
-	--color-dark-grey: #888888;
+	--color-dark-grey: #333333;
 	--color-light-grey: #efefef;
 }
 
@@ -12,6 +12,8 @@ body {
 	padding: 0;
 
 	background: #ffffff;
+
+	color: var(--color-dark-grey);
 
 	font-family: 'Poppins', sans-serif;
 }
@@ -34,6 +36,15 @@ h3 {
 	font-weight: 600;
 	font-size: 2rem;
 	line-height: 1.2;
+}
+
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 input {
@@ -189,13 +200,22 @@ footer {
 	position: relative;
 
 	width: 100%;
-	max-width: 1280px;
+	max-width: 800px;
 
 	margin: 20px auto;
 }
 
+#settings h1 {
+	text-align: center;
+}
+
+#settings .danger {
+	padding: 10px;
+	border: 1px solid red;
+}
+
 #settings .settings-input {
-	padding: 10px 100px;
+	padding: 10px 0;
 }
 
 #settings label {

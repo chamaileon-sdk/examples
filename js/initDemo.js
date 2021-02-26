@@ -6,9 +6,11 @@ document.getElementById('nav-logo').appendChild(chamaileonLogo())
 function createSettingsSection() {
 	const settingsSection = document.createElement('section');
 	settingsSection.id = 'settings'
-	settingsSection.innerHTML = `<h1>SDK Settings</h1>
+	settingsSection.innerHTML = `<h1>Chamaileon SDK Settings</h1>
 
-	<p>TODO description</p>
+	<p class="danger">This example project is only for demo and testing purposes, and it stores your API key in the localStorage. You should <strong style="color: red;">NEVER</strong> store your API key on the client side in real life. You should store it on your backend and create a route on your side that generates the access token. Then your client side can use that route to fetch an access token.</p>
+
+	<p class="info">You can create your own splash-screen and logo creator function based on our <a href="https://github.com/chamaileon-sdk/splashscreen-and-logo-examples">example</a>.</p>
 
 	<div class="settings-input">
 		<label for="apiKey">API Key</label>

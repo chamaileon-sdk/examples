@@ -6,25 +6,19 @@
 	const documentResponse = await fetch(documentUrl, { method: 'GET' })
 	const documentJson = await documentResponse.json()
 
-	document.getElementById('exampleJson').value = JSON.stringify(documentJson)
+	const exampleJsonTextArea = document.getElementById('exampleJson')
+
+	exampleJsonTextArea.value = JSON.stringify(documentJson)
 
 	const showExampleButton = document.getElementById('showExample')
 	showExampleButton.style.display = 'inline-block'
 	showExampleButton.onclick = () => {
-		const thumbnail = document.getElementById('thumbnail')
-		thumbnail.style.display = 'block'
+		const documentJson = JSON.parse(exampleJsonTextArea.value)
 
-		thumbnail.innerHTML = ''
+		documentJson.title = 'demo'
 
-		const documentJson = JSON.parse(document.getElementById('exampleJson').value)
-
-		chamaileonPlugins.createThumbnail({
-			document: documentJson,
-			width: 640,
-			height: 480,
-			scale: 0.5,
-			scroll: false,
-			container: thumbnail
+		chamaileonPlugins.previewEmail({
+			document: documentJson
 		})
 	}
 }())

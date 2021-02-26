@@ -5,19 +5,20 @@
 	nav.innerHTML = `
 		<ul>
 			<li>
-				<a href="/basic">Basic Examples</a>
+				<a href="/basic/">Basic Examples</a>
 				<ul>
 					<li><a href="/basic/email-thumbnail/">Email Thumbnail</a></li>
 					<li><a href="/basic/email-preview/">Email Preview</a></li>
 					<li><a href="/basic/email-editor/">Email Editor</a></li>
 					<li><a href="/basic/email-variable-editor/">Email Variable Editor</a></li>
-					<li><a href="/basic/email-html-import/">Email HTML Import</a></li>
+					<!--<li><a href="/basic/email-html-import/">Email HTML Import</a></li>-->
+					<li><a href="/basic/generate-email-html/">Generate Email HTML</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="/basic">Advanced Examples</a>
+				<a href="/advanced/">Advanced Examples</a>
 				<ul>
-					<li><a href="/advanced/email-editor/">Email Editor</a></li>
+					<!--<li><a href="/advanced/email-editor/">Email Editor</a></li>-->
 					<li><a href="/advanced/email-variable-editor/">Variable Editor</a></li>
 				</ul>
 			</li>

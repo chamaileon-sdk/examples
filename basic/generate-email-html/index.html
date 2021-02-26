@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Email Thumbnail - Chamaileon SDK</title>
+		<title>Email Preview - Chamaileon SDK</title>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 		<link href="/css/style.css" rel="stylesheet">
@@ -19,15 +19,16 @@
 		<main id="main">
 			<section id="content">
 				<div>
-					<h1>Email Thumbnail</h1>
+					<h1>Generate Email HTML</h1>
+					
 					<div id="description">
-						<p>In this example, the JSON in the textarea will be loaded into the thumbnail plugin.</p>
-						<button id="showExample">Load Thumbnail</button>
+						<p>In this example, the JSON in the textarea on the left hand side will be loaded into the email preview, when you click the 'Open Email Preview' button.</p>
+						<button id="showExample">Open Email Preview</button>
 					</div>
 				</div>
 				<div>
 					<textarea id="exampleJson">Loading...</textarea>
-					<div id="thumbnail" style="width: 320px; margin: 20px auto;"></div>
+					<textarea id="generatedHtml"></textarea>
 				</div>
 			</section>
 		</main>

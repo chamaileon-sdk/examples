@@ -1,5 +1,5 @@
 (async function() {
-	const documentUrl = 'https://chamaileon-sdk.github.io/example-jsons/jsons/business-promo.json'
+	const documentUrl = './layout1.json'
 
 	const chamaileonPlugins = await initChamaileonSdk()
 
@@ -20,9 +20,13 @@
 		const variableEditor = await chamaileonPlugins.editVariables({
 			document: documentJson,
 			hooks: {
-				onButtonClicked: ({ buttonId }) => {
+				onButtonClicked: async ({ buttonId }) => {
 					if (buttonId === 'close') {
+						const newJson = await variableEditor.getJson()
+						exampleJsonTextArea.value = JSON.stringify(newJson)
 						variableEditor.close()
+					} else {
+						alert(`${buttonId} clicked.`)
 					}
 				}
 			},

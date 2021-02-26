@@ -158,7 +158,7 @@
 					}
 
 					if (buttonId === 'finish') {
-						updateThumbnails()
+						updateThumbnails(0.5)
 						variableEditor.close()
 					}
 				}
@@ -180,7 +180,7 @@
 		})
 	}
 
-	function updateThumbnails() {
+	function updateThumbnails(scale) {
 		const thumb1 = document.getElementById('thumbnail1')
 		const thumb2 = document.getElementById('thumbnail2')
 		const thumb3 = document.getElementById('thumbnail3')
@@ -202,7 +202,7 @@
 			},
 			width: 640,
 			height: 480,
-			scale: 1,
+			scale,
 			scroll: false,
 			container: thumb1
 		})
@@ -220,7 +220,7 @@
 			},
 			width: 640,
 			height: 480,
-			scale: 1,
+			scale,
 			scroll: false,
 			container: thumb2
 		})
@@ -238,7 +238,7 @@
 			},
 			width: 640,
 			height: 480,
-			scale: 1,
+			scale,
 			scroll: false,
 			container: thumb3
 		})
@@ -253,7 +253,7 @@
 		documentResponse = await fetch('./layout2.json', { method: 'GET' })
 		layouts.layout2 = await documentResponse.json()
 
-		updateThumbnails()
+		updateThumbnails(0.5)
 	
 		const showExampleButton = document.getElementById('showExample')
 		showExampleButton.style.display = 'inline-block'
