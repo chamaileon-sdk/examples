@@ -128,9 +128,7 @@ footer {
 	position: relative;
 	overflow: hidden;
 
-	height: 200px;
-
-	padding: 20px 0;
+	padding: 50px 0;
 
 	text-align: center;
 	color: var(--color-dark-grey);
