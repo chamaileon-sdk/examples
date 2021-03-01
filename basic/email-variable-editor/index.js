@@ -22,7 +22,7 @@
 			hooks: {
 				onButtonClicked: async ({ buttonId }) => {
 					if (buttonId === 'close') {
-						const newJson = await variableEditor.getJson()
+						const newJson = await variableEditor.getDocument()
 						exampleJsonTextArea.value = JSON.stringify(newJson)
 						variableEditor.close()
 					} else {

@@ -110,7 +110,7 @@
 			hooks: {
 				onButtonClicked: async ({ buttonId }) => {
 					const timeout = 500;
-					const actJson = await variableEditor.getJson()
+					const actJson = await variableEditor.getDocument()
 					if (buttonId === 'close') {
 						variableEditor.close()
 					}
