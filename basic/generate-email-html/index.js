@@ -5,6 +5,7 @@
 	const documentJson = await documentResponse.json()
 
 	const exampleJsonTextArea = document.getElementById('exampleJson')
+	const generatedHtmlTextArea = document.getElementById('generatedHtml')
 
 	exampleJsonTextArea.value = JSON.stringify(documentJson)
 
@@ -17,15 +18,17 @@
 		const demoSettings = JSON.parse(localStorage.getItem('chamaileonSdkDemoSettings'))
 		const apiKey = demoSettings.apiKey
 
+		generatedHtmlTextArea.value = 'loading...'
+
 		const genRequest = await fetch('https://sdk-api.chamaileon.io/api/v1/emails/generate', {
 			method: 'POST',
 			headers: {
 				'Authorization': `Bearer ${apiKey}`,
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
 			},
-			body: {
-				document: JSON.stringify(documentJson)
-			}
+			body: JSON.stringify({
+				document: documentJson
+			})
 		})
 
 		if (!genRequest.ok) {
@@ -33,6 +36,7 @@
 		}
 
 		const response = await genRequest.json()
-		console.log(response)
+
+		generatedHtmlTextArea.value = response.result
 	}
 }())
