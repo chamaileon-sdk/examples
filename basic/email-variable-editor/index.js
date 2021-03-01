@@ -38,7 +38,7 @@
 				}
 			},
 			buttons: {
-				textInsertPluginButtons: [
+				textInsertPlugin: [
 					{
 						id: 'merge-tags',
 						label: 'Merge Tags',
