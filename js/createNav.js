@@ -5,7 +5,7 @@
 	nav.innerHTML = `
 		<ul>
 			<li>
-				<a href="/basic/">Basic Examples</a>
+				<a href="https://chamaileon-sdk.github.io/examples/basic/">Basic Examples</a>
 				<ul>
 					<li><a href="https://chamaileon-sdk.github.io/examples/basic/email-thumbnail/">Email Thumbnail</a></li>
 					<li><a href="https://chamaileon-sdk.github.io/examples/basic/email-preview/">Email Preview</a></li>
@@ -16,7 +16,7 @@
 				</ul>
 			</li>
 			<li>
-				<a href="/advanced/">Advanced Examples</a>
+				<a href="https://chamaileon-sdk.github.io/examples/advanced/">Advanced Examples</a>
 				<ul>
 				<!--<li><a href="https://chamaileon-sdk.github.io/examples/advanced/email-editor/">Email Editor</a></li>-->
 					<li><a href="https://chamaileon-sdk.github.io/examples/advanced/email-variable-editor/">Email Variable Editor</a></li>
