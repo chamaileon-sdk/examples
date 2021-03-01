@@ -32,14 +32,10 @@
 			},
 			buttons: {
 				header: {
-					left: [{
-						id: 'close',
-						icon: 'arrow_back'
-					}],
-					right: [
+					left: [
 						{
-							id: 'next',
-							label: 'Next'
+							id: 'close',
+							icon: 'arrow_back'
 						}
 					]
 				},
@@ -48,6 +44,12 @@
 						{
 							id: 'prev',
 							label: 'Prev'
+						}
+					],
+					right: [
+						{
+							id: 'next',
+							label: 'Next'
 						}
 					]
 				}
