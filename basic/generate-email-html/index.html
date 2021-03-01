@@ -1,10 +1,18 @@
 <html>
 	<head>
-		<title>Email Preview - Chamaileon SDK</title>
+		<title>Generate Email HTML - Chamaileon SDK</title>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 		<link href="/css/style.css" rel="stylesheet">
 		<link href="/basic/style.css" rel="stylesheet">
+		<style>
+			#generatedHtml {
+				width: 100%;
+				height: 300px;
+
+				margin-top: 20px;
+			}
+		</style>
 	</head>
 	<body>
 		<header>
@@ -22,8 +30,9 @@
 					<h1>Generate Email HTML</h1>
 					
 					<div id="description">
-						<p>In this example, the JSON in the textarea on the left hand side will be loaded into the email preview, when you click the 'Open Email Preview' button.</p>
-						<button id="showExample">Open Email Preview</button>
+						<p>If you click on the "Generate Email HTML" button, then the JSON in the textarea will be sent to our generator and the Email HTML will be put into a second textarea.</p>
+						<p>In this example, we are sending the request from the client-side, but you should never do that. You should send this request from your backend, otherwise, your API key will be compromised.</p>
+						<button id="showExample">Generate Email HTML</button>
 					</div>
 				</div>
 				<div>
