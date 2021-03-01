@@ -4,6 +4,7 @@
 	nav.id = 'nav'
 	nav.innerHTML = `
 		<ul>
+			<li><a href="https://chamaileon.io/sdk/docs/" target="_blank">Read the Docs</a></li>
 			<li>
 				<a href="https://chamaileon-sdk.github.io/examples/basic/">Basic Examples</a>
 				<ul>
