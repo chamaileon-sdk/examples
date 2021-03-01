@@ -117,6 +117,10 @@
 
 					logo.value = actJson.variables.find(e => e.name === "logo").value
 					primaryColor.value = actJson.variables.find(e => e.name === "primaryColor").value
+					
+					content[contentProp][0].value = actJson.variables.find(e => e.name === "heroText").value
+					content[contentProp][1].value = actJson.variables.find(e => e.name === "buttonText").value
+					content[contentProp][2].value = actJson.variables.find(e => e.name === "buttonLink").value
 	
 					if (buttonId === 'swap-layout') {
 						if (layoutProp === 'layout1') {
