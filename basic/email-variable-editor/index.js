@@ -28,9 +28,23 @@
 					} else {
 						alert(`${buttonId} clicked.`)
 					}
+				},
+				onEditImage: async (params) => {
+					console.log(params)
+					return { src: 'https://www.freelogodesign.org/Content/img/logo-samples/flooop.png' }
+				},
+				onTextInsertPluginButtonClicked: async (params) => {
+					console.log(params)
 				}
 			},
 			buttons: {
+				textInsertPluginButtons: [
+					{
+						id: 'merge-tags',
+						label: 'Merge Tags',
+						icon: 'https://raw.githubusercontent.com/ckeditor/ckeditor4/major/skins/kama/icons/paste.png'
+					}
+				],
 				header: {
 					left: [
 						{

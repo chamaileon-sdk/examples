@@ -2,25 +2,32 @@
 	const main = document.getElementById('main')
 	const nav = document.createElement('nav')
 	nav.id = 'nav'
+
+	let baseUrl = '/'
+
+	if (location.host === 'chamaileon-sdk.github.io') {
+		baseUrl = 'https://chamaileon-sdk.github.io/examples/'
+	}
+
 	nav.innerHTML = `
 		<ul>
 			<li><a href="https://chamaileon.io/sdk/docs/" target="_blank">Read the Docs</a></li>
 			<li>
-				<a href="https://chamaileon-sdk.github.io/examples/basic/">Basic Examples</a>
+				<a href="${baseUrl}basic/">Basic Examples</a>
 				<ul>
-					<li><a href="https://chamaileon-sdk.github.io/examples/basic/email-thumbnail/">Email Thumbnail</a></li>
-					<li><a href="https://chamaileon-sdk.github.io/examples/basic/email-preview/">Email Preview</a></li>
-					<li><a href="https://chamaileon-sdk.github.io/examples/basic/email-editor/">Email Editor</a></li>
-					<li><a href="https://chamaileon-sdk.github.io/examples/basic/email-variable-editor/">Email Variable Editor</a></li>
-					<!--<li><a href="https://chamaileon-sdk.github.io/examples/basic/email-html-import/">Email HTML Import</a></li>-->
-					<li><a href="https://chamaileon-sdk.github.io/examples/basic/generate-email-html/">Generate Email HTML</a></li>
+					<li><a href="${baseUrl}basic/email-thumbnail/">Email Thumbnail</a></li>
+					<li><a href="${baseUrl}basic/email-preview/">Email Preview</a></li>
+					<li><a href="${baseUrl}basic/email-editor/">Email Editor</a></li>
+					<li><a href="${baseUrl}basic/email-variable-editor/">Email Variable Editor</a></li>
+					<!--<li><a href="${baseUrl}basic/email-html-import/">Email HTML Import</a></li>-->
+					<li><a href="${baseUrl}basic/generate-email-html/">Generate Email HTML</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="https://chamaileon-sdk.github.io/examples/advanced/">Advanced Examples</a>
+				<a href="${baseUrl}advanced/">Advanced Examples</a>
 				<ul>
-				<!--<li><a href="https://chamaileon-sdk.github.io/examples/advanced/email-editor/">Email Editor</a></li>-->
-					<li><a href="https://chamaileon-sdk.github.io/examples/advanced/email-variable-editor/">Email Variable Editor</a></li>
+				<!--<li><a href="${baseUrl}advanced/email-editor/">Email Editor</a></li>-->
+					<li><a href="${baseUrl}advanced/email-variable-editor/">Email Variable Editor</a></li>
 				</ul>
 			</li>
 			<li>
