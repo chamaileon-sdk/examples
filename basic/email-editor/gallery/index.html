@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>Email Editor: Integrate With Your Gallery - Chamaileon SDK</title>
+		<link rel="icon" href="https://chamaileon-sdk.github.io/examples/favicon.ico" type="image/x-icon" sizes="32x32">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link href="../../../css/style.css" rel="stylesheet">
+		<link href="../../style.css" rel="stylesheet">
+		<style>
+			.gallery-modal-images {
+				display: flex;
+			}
+
+			.gallery-modal-images > div {
+				width: calc(100% / 3);
+			}
+
+			.gallery-modal-images > div > img {
+				cursor: pointer;
+
+				width: 100%;
+				max-width: 200px;
+				height: auto;
+
+				margin: 10px auto;
+			}
+
+			.gallery-modal-images > div > img:hover {
+				outline: 2px solid #aaaaaa;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="logo-wrapper">
+				<a href="https://chamaileon-sdk.github.io/examples/">
+					<div id="logo"></div>
+					<div id="logo-badge">SDK Examples</div>
+				</a>
+			</div>
+			<button id="settings-button">Settings</button>
+		</header>
+		<main id="main">
+			<section id="content">
+				<div>
+					<h1>Email Editor: Integrate With Your Gallery</h1>
+
+					<div id="description">
+						<p>This example shows how you can integrate your own gallery with our email editor.</p>
+						<button id="showExample">Open Email Editor</button>
+					</div>
+				</div>
+				<div>
+					<textarea id="exampleJson">Loading...</textarea>
+				</div>
+			</section>
+		</main>
+		<footer>
+			All rights reserved.
+		</footer>
+		<section id="gallery-modal" class="layover">
+			<div class="modal">
+				<div id="gallery-modal-close" class="close">&times;</div>
+				<div class="content">
+					<h2>Gallery Example</h2>
+					<p>You can integrate your own gallery with our email editor. In this example, we are using some example photos from <a href="https://www.pexels.com/">pexels</a>.</p>
+					<p>Please, select from the examples below:</p>
+					<div class="gallery-modal-images">
+						<div>
+							<img id="gallery-modal-img1" src="https://images.pexels.com/photos/6948641/pexels-photo-6948641.jpeg">
+						</div>
+						<div>
+							<img id="gallery-modal-img2" src="https://images.pexels.com/photos/5726794/pexels-photo-5726794.jpeg">
+						</div>
+						<div>
+							<img id="gallery-modal-img3" src="https://images.pexels.com/photos/943907/pexels-photo-943907.jpeg">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src='https://plugins.chamaileon.io/static/chamaileonSdk.js'></script>
+		<script src="../../../js/chamaileonLogo.js"></script>
+		<script src="../../../js/createNav.js"></script>
+		<script src="../../../js/initDemo.js"></script>
+		<script src="../../../js/initChamaileonSDK.js"></script>
+		<script src="./index.js"></script>
+	</body>
+</html>

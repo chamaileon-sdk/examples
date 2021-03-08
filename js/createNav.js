@@ -17,7 +17,14 @@
 				<ul>
 					<li><a href="${baseUrl}basic/email-thumbnail/">Email Thumbnail</a></li>
 					<li><a href="${baseUrl}basic/email-preview/">Email Preview</a></li>
-					<li><a href="${baseUrl}basic/email-editor/">Email Editor</a></li>
+					<li>
+						<a href="${baseUrl}basic/email-editor/">Email Editor</a>
+						<ul>
+							<li><a href="${baseUrl}basic/email-editor/merge-tags/">Merge Tags</a></li>
+							<li><a href="${baseUrl}basic/email-editor/gallery/">Gallery</a></li>
+							<!--<li><a href="${baseUrl}basic/email-editor/blocks/">Blocks</a></li>-->
+						</ul>
+					</li>
 					<li><a href="${baseUrl}basic/email-variable-editor/">Email Variable Editor</a></li>
 					<!--<li><a href="${baseUrl}basic/email-html-import/">Email HTML Import</a></li>-->
 					<li><a href="${baseUrl}basic/generate-email-html/">Generate Email HTML</a></li>
@@ -26,7 +33,7 @@
 			<li>
 				<a href="${baseUrl}advanced/">Advanced Examples</a>
 				<ul>
-				<!--<li><a href="${baseUrl}advanced/email-editor/">Email Editor</a></li>-->
+					<!--<li><a href="${baseUrl}advanced/email-editor/">Email Editor</a></li>-->
 					<li><a href="${baseUrl}advanced/email-variable-editor/">Email Variable Editor</a></li>
 				</ul>
 			</li>

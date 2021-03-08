@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Email Editor: Merge Tags - Chamaileon SDK</title>
+		<link rel="icon" href="https://chamaileon-sdk.github.io/examples/favicon.ico" type="image/x-icon" sizes="32x32">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link href="../../../css/style.css" rel="stylesheet">
+		<link href="../../style.css" rel="stylesheet">
+		<style>
+			.merge-tag-list > li {
+				cursor: pointer;
+				padding: 10px;
+			}
+
+			.merge-tag-list > li:hover {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="logo-wrapper">
+				<a href="https://chamaileon-sdk.github.io/examples/">
+					<div id="logo"></div>
+					<div id="logo-badge">SDK Examples</div>
+				</a>
+			</div>
+			<button id="settings-button">Settings</button>
+		</header>
+		<main id="main">
+			<section id="content">
+				<div>
+					<h1>Email Editor: Merge Tags</h1>
+
+					<div id="description">
+						<p>This example is focusing on providing merge tags to your users. It configures a button, that will show up in the top toolbar on the right-hand-side when you are editing a text element. If you click on that button, a Javascript hook is called, in which you can implement your custom merge tag dialog.</p>
+						<p>Search for the <img src="https://raw.githubusercontent.com/ckeditor/ckeditor4/major/skins/kama/icons/paste.png"> icon when you are editing a text element.</p>
+						<button id="showExample">Open Email Editor</button>
+					</div>
+				</div>
+				<div>
+					<textarea id="exampleJson">Loading...</textarea>
+				</div>
+			</section>
+		</main>
+		<footer>
+			All rights reserved.
+		</footer>
+		<section id="merge-tags-modal" class="layover">
+			<div class="modal">
+				<div id="merge-tags-modal-close" class="close">&times;</div>
+				<div class="content">
+					<h2>Select a merge tag</h2>
+					<p>You can implement your own merge tag popup, where you can even fetch user-dependent data from your backend.</p>
+					<p>Please, select from the examples below:</p>
+					<ul class="merge-tag-list">
+						<li id="merge-tags-modal-firstName">First name</li>
+						<li id="merge-tags-modal-lastName">Last name</li>
+						<li id="merge-tags-modal-unsubscribe">Unsubscribe</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<script src='https://plugins.chamaileon.io/static/chamaileonSdk.js'></script>
+		<script src="../../../js/chamaileonLogo.js"></script>
+		<script src="../../../js/createNav.js"></script>
+		<script src="../../../js/initDemo.js"></script>
+		<script src="../../../js/initChamaileonSDK.js"></script>
+		<script src="./index.js"></script>
+	</body>
+</html>

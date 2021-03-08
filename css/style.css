@@ -232,3 +232,65 @@ footer {
 	left: 0;
 	z-index: 1;
 }
+
+
+
+/* modal classes */
+
+.layover {
+	z-index: -1;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: rgba(50, 50, 50, 0);
+	transition: background 0.5s ease;
+}
+
+.layover > .modal {
+	position: relative;
+
+	width: 50%;
+	min-height: 50%;
+
+	border-radius: 30px;
+	background: #ffffff;
+
+	margin-top: 200vh;
+
+	transition: margin 0.5s ease;
+}
+
+.layover > .modal > .close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 20px;
+	cursor: pointer;
+	color: #333333;
+}
+
+.layover > .modal > .close:hover {
+	color: #666666;
+}
+
+.layover > .modal > .content {
+	padding: 30px;
+}
+
+.layover.visible {
+	background: rgba(50, 50, 50, 0.8);
+}
+
+.layover.visible > .modal {
+	margin-top: 0;
+}
+
+/* modal classes end */
