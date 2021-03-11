@@ -20,8 +20,8 @@
 		chamaileonPlugins.editEmail({
 			document: documentJson,
 			hooks: {
-				onSave: (params) => {
-					exampleJsonTextArea.value = JSON.stringify(params.emailJson)
+				onSave: ({ document }) => {
+					exampleJsonTextArea.value = JSON.stringify(document)
 				}
 			}
 		})

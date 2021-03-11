@@ -27,9 +27,8 @@
 				}
 			],
 			hooks: {
-				onSave: (params) => {
-					console.log(param)
-					exampleJsonTextArea.value = JSON.stringify(params.emailJson)
+				onSave: ({ document }) => {
+					exampleJsonTextArea.value = JSON.stringify(document)
 				},
 				onTextInsertPluginButtonClicked: async ({buttonId}) => {
 					if (buttonId !== 'merge-tags') { // this value depends on your configuration. You can configure multiple buttons.

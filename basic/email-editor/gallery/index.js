@@ -61,9 +61,8 @@
 		chamaileonPlugins.editEmail({
 			document: documentJson,
 			hooks: {
-				onSave: (params) => {
-					console.log(param)
-					exampleJsonTextArea.value = JSON.stringify(params.emailJson)
+				onSave: ({ document }) => {
+					exampleJsonTextArea.value = JSON.stringify(document)
 				},
 				onEditImage: showGallery,
 				onEditBackgroundImage: showGallery,

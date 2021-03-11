@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Email Editor: Block Libraries - Chamaileon SDK</title>
+		<link rel="icon" href="https://chamaileon-sdk.github.io/examples/favicon.ico" type="image/x-icon" sizes="32x32">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link href="../../../css/style.css" rel="stylesheet">
+		<link href="../../style.css" rel="stylesheet">
+		<style>
+			#favoriteBlocks {
+				width: 100%;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="logo-wrapper">
+				<a href="https://chamaileon-sdk.github.io/examples/">
+					<div id="logo"></div>
+					<div id="logo-badge">SDK Examples</div>
+				</a>
+			</div>
+			<button id="settings-button">Settings</button>
+		</header>
+		<main id="main">
+			<section id="content">
+				<div>
+					<h1>Email Editor: Block Libraries</h1>
+
+					<div id="description">
+						<p>This example showcases how you can provide block libraries to your users. There will be two block libraries in the editor.</p>
+						<p>The first one will contain all of the blocks of the loaded email, and it is forbidden to save blocs to that block library. The second one (Favorite blocks) will be initially empty, but you will be able to save blocks into it.</p>
+						<button id="showExample">Open Email Editor</button>
+					</div>
+				</div>
+				<div>
+					<textarea id="exampleJson">Loading...</textarea>
+					<p>Favorite blocks:</p>
+					<textarea id="favoriteBlocks">[]</textarea>
+				</div>
+			</section>
+		</main>
+		<footer>
+			All rights reserved.
+		</footer>
+
+		<script src='https://plugins.chamaileon.io/static/chamaileonSdk.js'></script>
+		<script src="../../../js/chamaileonLogo.js"></script>
+		<script src="../../../js/createNav.js"></script>
+		<script src="../../../js/initDemo.js"></script>
+		<script src="../../../js/initChamaileonSDK.js"></script>
+		<script src="./index.js"></script>
+	</body>
+</html>

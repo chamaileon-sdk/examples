@@ -22,7 +22,7 @@
 						<ul>
 							<li><a href="${baseUrl}basic/email-editor/merge-tags/">Merge Tags</a></li>
 							<li><a href="${baseUrl}basic/email-editor/gallery/">Gallery</a></li>
-							<!--<li><a href="${baseUrl}basic/email-editor/blocks/">Blocks</a></li>-->
+							<li><a href="${baseUrl}basic/email-editor/blocks/">Blocks</a></li>
 						</ul>
 					</li>
 					<li><a href="${baseUrl}basic/email-variable-editor/">Email Variable Editor</a></li>
