@@ -27,7 +27,6 @@
 					</li>
 					<li><a href="${baseUrl}basic/email-variable-editor/">Email Variable Editor</a></li>
 					<!--<li><a href="${baseUrl}basic/email-html-import/">Email HTML Import</a></li>-->
-					<li><a href="${baseUrl}basic/generate-email-html/">Generate Email HTML</a></li>
 				</ul>
 			</li>
 			<li>
@@ -35,6 +34,13 @@
 				<ul>
 					<!--<li><a href="${baseUrl}advanced/email-editor/">Email Editor</a></li>-->
 					<li><a href="${baseUrl}advanced/email-variable-editor/">Email Variable Editor</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="${baseUrl}api/">API Examples</a>
+				<ul>
+					<li><a href="${baseUrl}api/generate-email-html/">Generate Email HTML</a></li>
+					<li><a href="${baseUrl}api/import-email-html/">Import Email HTML</a></li>
 				</ul>
 			</li>
 			<li>

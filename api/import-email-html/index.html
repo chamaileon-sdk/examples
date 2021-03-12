@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Import Email HTML - Chamaileon SDK</title>
+		<link rel="icon" href="https://chamaileon-sdk.github.io/examples/favicon.ico" type="image/x-icon" sizes="32x32">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link href="../../css/style.css" rel="stylesheet">
+		<link href="../style.css" rel="stylesheet">
+		<style>
+			#generatedHtml {
+				width: 100%;
+				height: 300px;
+
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="logo-wrapper">
+				<a href="https://chamaileon-sdk.github.io/examples/">
+					<div id="logo"></div>
+					<div id="logo-badge">SDK Examples</div>
+				</a>
+			</div>
+			<button id="settings-button">Settings</button>
+		</header>
+		<main id="main">
+			<section id="content">
+				<div>
+					<h1>Import Email HTML</h1>
+					
+					<div id="description">
+						<p>When you click on the "Import Email HTML" button, the HTML in the first textarea will be sent to the import backend. You will see the result in the second textarea.</p>
+						<p style="color: red;">In this example, we are sending the request from the client-side, but you should never do that. You should send this request from your backend, otherwise, your API key will be compromised.</p>
+						<button id="showExample">Import Email HTML</button>
+					</div>
+				</div>
+				<div>
+					<p>Email HTML:</p>
+					<textarea id="emailHtml"></textarea>
+					<p>JSON document output:</p>
+					<textarea id="outputJson"></textarea>
+				</div>
+			</section>
+		</main>
+		<footer>
+			All rights reserved.
+		</footer>
+
+		<script src='https://plugins.chamaileon.io/static/chamaileonSdk.js'></script>
+		<script src="../../js/chamaileonLogo.js"></script>
+		<script src="../../js/createNav.js"></script>
+		<script src="../../js/initDemo.js"></script>
+		<script src="../../js/initChamaileonSDK.js"></script>
+		<script src="./index.js"></script>
+	</body>
+</html>
