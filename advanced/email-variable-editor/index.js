@@ -107,6 +107,22 @@
 				],
 				body: actLayout.body
 			},
+			settings: {
+				variablesToEdit: ['primaryColor', 'logo', 'heroText', 'buttonText', 'buttonLink'],
+				buttons: {
+					header: {
+						left: [{
+							id: 'close',
+							icon: 'arrow_back'
+						}],
+						right: [{
+							id: 'swap-layout',
+							label: 'Swap Layout'
+						}]
+					},
+					footer: footerButtons
+				}
+			},
 			hooks: {
 				onButtonClicked: async ({ buttonId }) => {
 					const timeout = 500;
@@ -166,21 +182,7 @@
 						variableEditor.close()
 					}
 				}
-			},
-			buttons: {
-				header: {
-					left: [{
-						id: 'close',
-						icon: 'arrow_back'
-					}],
-					right: [{
-						id: 'swap-layout',
-						label: 'Swap Layout'
-					}]
-				},
-				footer: footerButtons
-			},
-			container: document.body
+			}
 		})
 	}
 

@@ -19,6 +19,40 @@
 
 		const variableEditor = await chamaileonPlugins.editVariables({
 			document: documentJson,
+			settings: {
+				variablesToEdit: ['primaryColor', 'logo'],
+				buttons: {
+					textInsertPlugin: [
+						{
+							id: 'merge-tags',
+							label: 'Merge Tags',
+							icon: 'https://raw.githubusercontent.com/ckeditor/ckeditor4/major/skins/kama/icons/paste.png'
+						}
+					],
+					header: {
+						left: [
+							{
+								id: 'close',
+								icon: 'arrow_back'
+							}
+						]
+					},
+					footer: {
+						left: [
+							{
+								id: 'prev',
+								label: 'Prev'
+							}
+						],
+						right: [
+							{
+								id: 'next',
+								label: 'Next'
+							}
+						]
+					}
+				}
+			},
 			hooks: {
 				onButtonClicked: async ({ buttonId }) => {
 					if (buttonId === 'close') {
@@ -36,39 +70,7 @@
 				onTextInsertPluginButtonClicked: async (params) => {
 					console.log(params)
 				}
-			},
-			buttons: {
-				textInsertPlugin: [
-					{
-						id: 'merge-tags',
-						label: 'Merge Tags',
-						icon: 'https://raw.githubusercontent.com/ckeditor/ckeditor4/major/skins/kama/icons/paste.png'
-					}
-				],
-				header: {
-					left: [
-						{
-							id: 'close',
-							icon: 'arrow_back'
-						}
-					]
-				},
-				footer: {
-					left: [
-						{
-							id: 'prev',
-							label: 'Prev'
-						}
-					],
-					right: [
-						{
-							id: 'next',
-							label: 'Next'
-						}
-					]
-				}
-			},
-			container: document.body
+			}
 		})
 	}
 }())
