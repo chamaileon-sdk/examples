@@ -33,7 +33,7 @@
 				<a href="${baseUrl}advanced/">Advanced Examples</a>
 				<ul>
 					<!--<li><a href="${baseUrl}advanced/email-editor/">Email Editor</a></li>-->
-					<li><a href="${baseUrl}advanced/email-variable-editor/">Email Variable Editor</a></li>
+					<li><a href="${baseUrl}advanced/email-series-wizard/">Email Series Wizard</a></li>
 				</ul>
 			</li>
 			<li>
