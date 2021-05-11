@@ -28,16 +28,88 @@
 
 		chamaileonPlugins.editEmail({
 			document: documentJson,
-			blockLibraries: [
-				{
-					id: 'email-blocks',
-					label: 'Email\'s blocks',
+			settings: {
+				buttons: {
+					header: [
+						{
+							id: 'preview',
+							type: 'button',
+							icon: 'eye',
+							label: 'Test Button',
+							color: '#aaaaaa', // the button is "filled" with white
+							style: 'text' // or filled
+						},
+						{
+							icon: 'dog',
+							label: 'Test Dropdown',
+							color: "secondary", 
+							style: 'outlined', 
+							badge: false,
+							items: [  // if any button has a items field will generate a dropdown button, and only the items get callbacks
+								{
+									id: "share-email",
+									label: "Get shareable link",
+									icon: "share",
+								},
+								{
+									id: "send-test-email",
+									label: "Send test email",
+									icon: "email",
+									onClick: "openVariableEditor",
+								},
+								{
+									id: "request-review",
+									label: "Request a review",
+									icon: "comment-eye",
+								},
+							]
+						}
+					]
 				},
-				{
-					id: 'favorite-blocks',
-					label: 'Favorite blocks',
+				elements: {
+					content: {
+						text: true,
+						image: true,
+						button: true,
+						social: true,
+						divider: true,
+						code: true
+					},
+					structure: {
+						box: true,
+						multiColumn: true
+					},
+					advanced: {
+						loop: true,
+						conditional: true,
+						dynamicImage: true
+					}
+				},
+				blockLibraries: [
+					{
+						id: 'email-blocks',
+						label: 'Email\'s blocks',
+						canDeleteBlock: false,
+						canRenameBlock: false,
+						canSaveBlock: false
+					},
+					{
+						id: 'favorite-blocks',
+						label: 'Favorite blocks',
+						canDeleteBlock: true,
+						canRenameBlock: true,
+						canSaveBlock: true
+					}
+				],
+				addons: {
+					blockLock: {
+						enabled: true,
+					},
+					variableSystem: {
+						enabled: true
+					}
 				}
-			],
+			},
 			hooks: {
 				onSave: ({ document }) => {
 					exampleJsonTextArea.value = JSON.stringify(document)
@@ -79,6 +151,12 @@
 					favoriteBlocks = favoriteBlocks.filter(item => item._id !== _id)
 
 					favoriteBlocksTextArea.value = JSON.stringify(favoriteBlocks)
+				},
+				onHeaderButtonClicked: (params) => {
+					alert(JSON.stringify(params))
+				},
+				onTextInsertPluginButtonClicked: () => {
+					return { value: '%%first_name%%' }
 				}
 			}
 		})

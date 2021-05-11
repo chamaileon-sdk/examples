@@ -19,13 +19,44 @@
 
 		chamaileonPlugins.editEmail({
 			document: documentJson,
-			textInsertPluginButtons: [
-				{
-					id: 'merge-tags',
-					label: 'Merge tags',
-					icon: 'https://raw.githubusercontent.com/ckeditor/ckeditor4/major/skins/kama/icons/paste.png'
+			settings: {
+				buttons: {
+					textInsert: [
+						{
+							id: 'merge-tags',
+							label: 'Merge tags',
+							icon: 'https://raw.githubusercontent.com/ckeditor/ckeditor4/major/skins/kama/icons/paste.png'
+						}
+					]
+				},
+				elements: {
+					content: {
+						text: true,
+						image: true,
+						button: true,
+						social: true,
+						divider: true,
+						code: true
+					},
+					structure: {
+						box: true,
+						multiColumn: true
+					},
+					advanced: {
+						loop: true,
+						conditional: true,
+						dynamicImage: true
+					}
+				},
+				addons: {
+					blockLock: {
+						enabled: true,
+					},
+					variableSystem: {
+						enabled: true
+					}
 				}
-			],
+			},
 			hooks: {
 				onSave: ({ document }) => {
 					exampleJsonTextArea.value = JSON.stringify(document)

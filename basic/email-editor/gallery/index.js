@@ -60,6 +60,35 @@
 
 		chamaileonPlugins.editEmail({
 			document: documentJson,
+			settings: {
+				elements: {
+					content: {
+						text: true,
+						image: true,
+						button: true,
+						social: true,
+						divider: true,
+						code: true
+					},
+					structure: {
+						box: true,
+						multiColumn: true
+					},
+					advanced: {
+						loop: true,
+						conditional: true,
+						dynamicImage: true
+					}
+				},
+				addons: {
+					blockLock: {
+						enabled: true,
+					},
+					variableSystem: {
+						enabled: true
+					}
+				}
+			},
 			hooks: {
 				onSave: ({ document }) => {
 					exampleJsonTextArea.value = JSON.stringify(document)
