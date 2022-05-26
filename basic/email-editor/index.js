@@ -12,13 +12,15 @@
 
 	const editorInstance = await chamaileonPlugins.createFullscreenPlugin({
 		plugin: 'editor',
-		data: { document: {} },
+		data: { document: documentJson },
 		hooks: {
+			onSave: ({ document }) => {
+				exampleJsonTextArea.value = JSON.stringify(document)
+			},
 			close: () => {
 				editorInstance.hide()
 			}
-		},
-		settings: {}
+		}
 	})
 
 	const showExampleButton = document.getElementById('showExample')
