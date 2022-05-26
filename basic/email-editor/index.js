@@ -10,13 +10,30 @@
 
 	exampleJsonTextArea.value = JSON.stringify(documentJson)
 
+	const editorInstance = await chamaileonPlugins.createFullscreenPlugin({
+		plugin: 'editor',
+		data: { document: {} },
+		hooks: {
+			close: () => {
+				editorInstance.hide()
+			}
+		},
+		settings: {}
+	})
+
 	const showExampleButton = document.getElementById('showExample')
 	showExampleButton.style.display = 'inline-block'
-	showExampleButton.onclick = () => {
+	showExampleButton.onclick = async () => {
 		const documentJson = JSON.parse(exampleJsonTextArea.value)
 
 		documentJson.title = 'demo'
 
+		editorInstance.showSplashScreen()
+		editorInstance.show()
+		await editorInstance.methods.updateData({ document: documentJson })
+		editorInstance.hideSplashScreen()
+
+		/*
 		chamaileonPlugins.editEmail({
 			document: documentJson,
 			settings: {
@@ -60,5 +77,6 @@
 				}
 			}
 		})
+		*/
 	}
 }())
