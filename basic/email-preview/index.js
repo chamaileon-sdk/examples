@@ -17,8 +17,9 @@
 
 		documentJson.title = 'demo'
 
-		chamaileonPlugins.previewEmail({
-			document: documentJson
+		chamaileonPlugins.createFullscreenPlugin({
+			plugin: 'preview',
+			data: { document: documentJson }
 		})
 	}
 }())

@@ -46,28 +46,31 @@ async function initChamaileonSdk() {
 		const { apiKey, splashScreenUrl, createLogoJsUrl, primaryColor } = demoSettings
 		const accessToken = await getAccessToken({ apiKey })
 
-		const chamaileonPlugins = await chamaileonSdk.init({
-			mode: 'serverless',
-			accessToken,
-			whitelabel: {
-				urls: {
-					splashScreen: splashScreenUrl,
-					createLogoJS: createLogoJsUrl,
-				},
-				colors: {
-					'primary': primaryColor,
-					'secondary': '#009f4a',
-					'red': '#ff5546',
-					'darkBlue': '#2d3291',
-					'darkGreen': '#00af6e',
-					'lightGreen': '#50d791',
-					'weirdGreen': '#50d791',
-					'pink': '#ff91a0',
-					'yellow': '#ffd23c',
-				}
+		const whitelabelConfig = {
+			locale: 'en',
+			urls: {
+				splashScreen: splashScreenUrl,
+				createLogoJS: createLogoJsUrl,
+			},
+			colors: {
+				'primary': primaryColor,
+				'secondary': '#009f4a',
+				'red': '#ff5546',
+				'darkBlue': '#2d3291',
+				'darkGreen': '#00af6e',
+				'lightGreen': '#50d791',
+				'weirdGreen': '#50d791',
+				'pink': '#ff91a0',
+				'yellow': '#ffd23c',
 			}
+		}
+
+		const chamaileonPlugins = await window.chamaileonSdk({
+			...whitelabelConfig,
+			accessToken,
+			getAccessToken: () => getAccessToken({ apiKey })
 		})
-	
+
 		return chamaileonPlugins
 	} catch(e) {
 		alert('Authentication problem. Please check out your API key settings.')
