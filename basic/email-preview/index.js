@@ -10,16 +10,26 @@
 
 	exampleJsonTextArea.value = JSON.stringify(documentJson)
 
+	const previewInstance = await chamaileonPlugins.createFullscreenPlugin({
+		plugin: 'preview',
+		data: { document: {} },
+		hooks: {
+			close: () => {
+				previewInstance.hide()
+			}
+		},
+		settings: {}
+	})
+
 	const showExampleButton = document.getElementById('showExample')
 	showExampleButton.style.display = 'inline-block'
-	showExampleButton.onclick = () => {
+	showExampleButton.onclick = async () => {
 		const documentJson = JSON.parse(exampleJsonTextArea.value)
-
 		documentJson.title = 'demo'
 
-		chamaileonPlugins.createFullscreenPlugin({
-			plugin: 'preview',
-			data: { document: documentJson }
-		})
+		previewInstance.showSplashScreen()
+		previewInstance.show()
+		await previewInstance.methods.updateData({ document: documentJson })
+		previewInstance.hideSplashScreen()
 	}
 }())
