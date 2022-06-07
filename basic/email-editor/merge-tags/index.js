@@ -22,7 +22,15 @@
 						icon: 'https://raw.githubusercontent.com/ckeditor/ckeditor4/major/skins/kama/icons/paste.png'
 					}
 				]
-			}
+			},
+			addons: {
+				blockLock: {
+					enabled: true,
+				},
+				variableSystem: {
+					enabled: true
+				},
+			},
 		},
 		hooks: {
 			onSave: ({ document }) => {

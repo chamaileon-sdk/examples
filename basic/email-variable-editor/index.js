@@ -28,6 +28,7 @@
 						{
 							id: 'close',
 							icon: 'arrow-left',
+							color: '#000',
 						}
 					]
 				},
@@ -35,13 +36,17 @@
 					left: [
 						{
 							id: 'prev',
-							label: 'Prev'
+							label: 'Prev',
+							color: '#000',
+							style: 'outlined'
 						}
 					],
 					right: [
 						{
 							id: 'next',
-							label: 'Next'
+							label: 'Next',
+							color: '#000',
+							style: 'outlined'
 						}
 					]
 				}

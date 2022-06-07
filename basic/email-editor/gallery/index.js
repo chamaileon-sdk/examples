@@ -75,7 +75,15 @@
 					conditional: true,
 					dynamicImage: true
 				}
-			}
+			},
+			addons: {
+				blockLock: {
+					enabled: true,
+				},
+				variableSystem: {
+					enabled: true
+				},
+			},
 		},
 		hooks: {
 			onSave: ({ document }) => {

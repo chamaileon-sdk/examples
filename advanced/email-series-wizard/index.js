@@ -3,24 +3,24 @@
 	let layoutProp = "layout1"
 	let contentProp = "content1"
 	let editMode = "content" // other value: "colorsAndLogo"
-	
+
 	const layouts = {
 		layout1: null,
 		layout2: null
 	}
-	
+
 	const primaryColor = {
 		"type":"color",
 		"name":"primaryColor",
 		"value":"#00bee6",
 	}
-	
+
 	const logo = {
 		"type":"image",
 		"name":"logo",
 		"value":"https://chamaileon.io/wp-content/uploads/2020/02/Chamaileon-Logo-e1582208205164.png"
 	}
-	
+
 	const content = {
 		content1: [
 			{
@@ -106,14 +106,15 @@
 		return document
 	}
 
-	function createActSettings() { 
+	function createActSettings() {
 		let variablesToEdit = []
 
 		const buttons = {
 			header: {
 				left: [{
 					id: 'close',
-					icon: 'arrow_back'
+					icon: 'arrow-left',
+					color: '#000',
 				}],
 				right: []
 			},
@@ -123,12 +124,12 @@
 			}
 		}
 
-		const prevButton = { id: 'prev', label: 'Prev' }
-		const nextButton = { id: 'next', label: 'Next' }
-		const finishButton = { id: 'finish', label: 'Finish' }
+		const prevButton = { id: 'prev', label: 'Prev', color: '#000', style: 'outlined' }
+		const nextButton = { id: 'next', label: 'Next', color: '#000', style: 'outlined' }
+		const finishButton = { id: 'finish', label: 'Finish', color: '#000', style: 'outlined' }
 
-		const changeColorsAndLogoButton = { id: 'change-colors-and-logo', label: 'Change Colors & Logo' }
-		const swapLayoutButton = { id: 'swap-layout', label: 'Swap Layout' }
+		const changeColorsAndLogoButton = { id: 'change-colors-and-logo', label: 'Change Colors & Logo', color: '#000', style: 'outlined' }
+		const swapLayoutButton = { id: 'swap-layout', label: 'Swap Layout', color: '#000', style: 'outlined' }
 
 		const okButton = { id: 'ok', label: 'Ok' }
 		const cancelButton = { id: 'cancel', label: 'Cancel' }
@@ -345,15 +346,15 @@
 
 		editMode = 'content'
 	}
-	
+
 	chamaileonPlugins = await initChamaileonSdk()
-	
+
 	let documentResponse = await fetch('./layout1.json', { method: 'GET' })
 	layouts.layout1 = await documentResponse.json()
 
 	documentResponse = await fetch('./layout2.json', { method: 'GET' })
 	layouts.layout2 = await documentResponse.json()
-		
+
 	const variableEditorInstance = await chamaileonPlugins.createFullscreenPlugin({
 		plugin: 'variable-editor',
 		data: { document: {} },
@@ -374,7 +375,7 @@
 
 	async function main() {
 		initThumbnails(0.5)
-	
+
 		const showExampleButton = document.getElementById('showExample')
 		showExampleButton.style.display = 'inline-block'
 		showExampleButton.onclick = async () => {

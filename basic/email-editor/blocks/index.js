@@ -35,8 +35,8 @@
 					{
 						icon: 'dog',
 						label: 'Test Dropdown',
-						color: "secondary", 
-						style: 'outlined', 
+						color: "secondary",
+						style: 'outlined',
 						badge: false,
 						items: [  // if any button has a items field will generate a dropdown button, and only the items get callbacks
 							{
@@ -93,7 +93,15 @@
 					canRenameBlock: true,
 					canSaveBlock: true
 				}
-			]
+			],
+			addons: {
+				blockLock: {
+					enabled: true,
+				},
+				variableSystem: {
+					enabled: true
+				},
+			},
 		},
 		hooks: {
 			onSave: ({ document }) => {

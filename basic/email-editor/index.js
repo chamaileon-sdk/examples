@@ -13,6 +13,16 @@
 	const editorInstance = await chamaileonPlugins.createFullscreenPlugin({
 		plugin: 'editor',
 		data: { document: documentJson },
+		settings: {
+			addons: {
+				blockLock: {
+					enabled: true,
+				},
+				variableSystem: {
+					enabled: true
+				},
+			},
+		},
 		hooks: {
 			onSave: ({ document }) => {
 				exampleJsonTextArea.value = JSON.stringify(document)
