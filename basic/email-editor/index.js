@@ -10,55 +10,39 @@
 
 	exampleJsonTextArea.value = JSON.stringify(documentJson)
 
+	const editorInstance = await chamaileonPlugins.createFullscreenPlugin({
+		plugin: 'editor',
+		data: { document: documentJson },
+		settings: {
+			addons: {
+				blockLock: {
+					enabled: true,
+				},
+				variableSystem: {
+					enabled: true
+				},
+			},
+		},
+		hooks: {
+			onSave: ({ document }) => {
+				exampleJsonTextArea.value = JSON.stringify(document)
+			},
+			close: () => {
+				editorInstance.hide()
+			}
+		}
+	})
+
 	const showExampleButton = document.getElementById('showExample')
 	showExampleButton.style.display = 'inline-block'
-	showExampleButton.onclick = () => {
+	showExampleButton.onclick = async () => {
 		const documentJson = JSON.parse(exampleJsonTextArea.value)
 
 		documentJson.title = 'demo'
 
-		chamaileonPlugins.editEmail({
-			document: documentJson,
-			settings: {
-				elements: {
-					content: {
-						text: true,
-						image: true,
-						button: true,
-						social: true,
-						divider: true,
-						code: true
-					},
-					structure: {
-						box: true,
-						multiColumn: true
-					},
-					advanced: {
-						loop: true,
-						conditional: true,
-						dynamicImage: true
-					}
-				},
-				addons: {
-					blockLock: {
-						enabled: true,
-					},
-					variableSystem: {
-						enabled: true
-					}
-				}
-			},
-			hooks: {
-				onSave: ({ document }) => {
-					exampleJsonTextArea.value = JSON.stringify(document)
-				},
-				onAutoSave: (params) => {
-					alert(JSON.stringify(params))
-				},
-				onDropdownButtonClicked: (params) => {
-					alert(JSON.stringify(params))
-				}
-			}
-		})
+		editorInstance.showSplashScreen()
+		editorInstance.show()
+		await editorInstance.methods.updateData({ document: documentJson })
+		editorInstance.hideSplashScreen()
 	}
 }())

@@ -18,12 +18,16 @@
 
 		const documentJson = JSON.parse(document.getElementById('exampleJson').value)
 
-		chamaileonPlugins.createThumbnail({
-			document: documentJson,
-			width: 640,
-			height: 480,
-			scale: 0.5,
-			scroll: false,
+		chamaileonPlugins.createInlinePlugin({
+			plugin: 'thumbnail',
+			data: { document: documentJson },
+			settings: {
+				width: 640,
+				height: 480,
+				scale: 0.5,
+				scroll: false
+			}
+		}, {
 			container: thumbnail
 		})
 	}

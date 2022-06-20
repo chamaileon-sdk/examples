@@ -15,7 +15,7 @@
 
 	async function showGallery() {
 		const galleryModal = document.getElementById('gallery-modal')
-		galleryModal.style.zIndex = 11
+		galleryModal.style.zIndex = 2011
 		galleryModal.classList.add('visible')
 
 		function closeGalleryModal() {
@@ -53,49 +53,58 @@
 		})
 	}
 
-	showExampleButton.onclick = () => {
+	const editorInstance = await chamaileonPlugins.createFullscreenPlugin({
+		plugin: 'editor',
+		data: { document: documentJson },
+		settings: {
+			elements: {
+				content: {
+					text: true,
+					image: true,
+					button: true,
+					social: true,
+					divider: true,
+					code: true
+				},
+				structure: {
+					box: true,
+					multiColumn: true
+				},
+				advanced: {
+					loop: true,
+					conditional: true,
+					dynamicImage: true
+				}
+			},
+			addons: {
+				blockLock: {
+					enabled: true,
+				},
+				variableSystem: {
+					enabled: true
+				},
+			},
+		},
+		hooks: {
+			onSave: ({ document }) => {
+				exampleJsonTextArea.value = JSON.stringify(document)
+			},
+			onEditImage: showGallery,
+			onEditBackgroundImage: showGallery,
+			close: () => {
+				editorInstance.hide()
+			}
+		}
+	})
+
+	showExampleButton.onclick = async () => {
 		const documentJson = JSON.parse(exampleJsonTextArea.value)
 
 		documentJson.title = 'demo'
 
-		chamaileonPlugins.editEmail({
-			document: documentJson,
-			settings: {
-				elements: {
-					content: {
-						text: true,
-						image: true,
-						button: true,
-						social: true,
-						divider: true,
-						code: true
-					},
-					structure: {
-						box: true,
-						multiColumn: true
-					},
-					advanced: {
-						loop: true,
-						conditional: true,
-						dynamicImage: true
-					}
-				},
-				addons: {
-					blockLock: {
-						enabled: true,
-					},
-					variableSystem: {
-						enabled: true
-					}
-				}
-			},
-			hooks: {
-				onSave: ({ document }) => {
-					exampleJsonTextArea.value = JSON.stringify(document)
-				},
-				onEditImage: showGallery,
-				onEditBackgroundImage: showGallery,
-			}
-		})
+		editorInstance.showSplashScreen()
+		editorInstance.show()
+		await editorInstance.methods.updateData({ document: documentJson })
+		editorInstance.hideSplashScreen()
 	}
 }())
