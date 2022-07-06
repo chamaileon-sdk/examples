@@ -188,13 +188,15 @@
 				}
 			},
 			settings: {
-				width: 640,
-				height: 480,
-				scale: 0.5,
 				scroll: false
 			}
 		}, {
-			container: thumb1
+			container: thumb1,
+			dimensions: {
+				width: 640,
+				height: 480,
+				scale: 0.5,
+			}
 		})
 
 		thumbnailInstance2 = await chamaileonPlugins.createInlinePlugin({
@@ -212,13 +214,15 @@
 				}
 			},
 			settings: {
-				width: 640,
-				height: 480,
-				scale: 0.5,
 				scroll: false
 			}
 		}, {
-			container: thumb2
+			container: thumb2,
+			dimensions: {
+				width: 640,
+				height: 480,
+				scale: 0.5,
+			}
 		})
 
 		thumbnailInstance3 = await chamaileonPlugins.createInlinePlugin({
@@ -236,13 +240,15 @@
 				}
 			},
 			settings: {
-				width: 640,
-				height: 480,
-				scale: 0.5,
 				scroll: false
 			}
 		}, {
-			container: thumb3
+			container: thumb3,
+			dimensions: {
+				width: 640,
+				height: 480,
+				scale: 0.5,
+			}
 		})
 	}
 
