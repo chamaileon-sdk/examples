@@ -22,13 +22,15 @@
 			plugin: 'thumbnail',
 			data: { document: documentJson },
 			settings: {
-				width: 640,
-				height: 480,
-				scale: 0.5,
 				scroll: false
 			}
 		}, {
-			container: thumbnail
+			container: thumbnail,
+			dimensions: {
+				width: 640,
+				height: 480,
+				scale: 0.5,
+			}
 		})
 	}
 }())
