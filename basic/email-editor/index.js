@@ -25,7 +25,6 @@
 		},
 		hooks: {
 			onSave: ({ document }) => {
-				console.log(document)
 				exampleJsonTextArea.value = JSON.stringify(document)
 			},
 			close: () => {
