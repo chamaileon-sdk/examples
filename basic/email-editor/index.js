@@ -12,7 +12,7 @@
 
 	const editorInstance = await chamaileonPlugins.createFullscreenPlugin({
 		plugin: 'editor',
-		data: {},
+		data: { document: documentJson },
 		settings: {
 			addons: {
 				blockLock: {
@@ -43,7 +43,7 @@
 
 		editorInstance.showSplashScreen()
 		editorInstance.show()
-		await editorInstance.methods.updateData({ document: {} })
+		await editorInstance.methods.updateData({ document: documentJson })
 		editorInstance.hideSplashScreen()
 	}
 }())
