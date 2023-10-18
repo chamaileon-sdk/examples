@@ -1,5 +1,5 @@
 async function fetchAccessToken({ apiKey }) {
-	const accessTokenRequest = await fetch('https://sdk-api.chamaileon.io/api/v1/tokens/generate', {
+	const accessTokenRequest = await fetch('https://sdk-api.chamaileon.io/api/v2/tokens/generate', {
 		method: 'GET',
 		headers: {
 			'Authorization': `Bearer ${apiKey}`,

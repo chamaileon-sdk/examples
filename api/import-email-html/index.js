@@ -19,7 +19,7 @@
 
 		outputJsonTextArea.value = 'HTML import is a complicated process, it might take a while...'
 
-		const importRequest = await fetch('https://sdk-api.chamaileon.io/api/v1/emails/import', {
+		const importRequest = await fetch('https://sdk-api.chamaileon.io/api/v2/emails/import', {
 			method: 'POST',
 			headers: {
 				'Authorization': `Bearer ${apiKey}`,
