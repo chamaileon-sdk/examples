@@ -20,7 +20,7 @@
 
 		generatedHtmlTextArea.value = 'loading...'
 
-		const genRequest = await fetch('https://sdk-api.chamaileon.io/api/v1/emails/generate', {
+		const genRequest = await fetch('https://sdk-api.chamaileon.io/api/v2/emails/generate', {
 			method: 'POST',
 			headers: {
 				'Authorization': `Bearer ${apiKey}`,
