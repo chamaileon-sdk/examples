@@ -47,7 +47,6 @@ async function initChamaileonSdk() {
 		const accessToken = await getAccessToken({ apiKey })
 
 		const whitelabelConfig = {
-			environmentName: "sdk-staging",
 			locale: 'en',
 			urls: {
 				splashScreen: splashScreenUrl,
