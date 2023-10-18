@@ -1,5 +1,5 @@
 async function fetchAccessToken({ apiKey }) {
-	const accessTokenRequest = await fetch('https://sdk-api.chamaileon.io/api/v1/tokens/generate', {
+	const accessTokenRequest = await fetch('https://sdk-api.staging.chamaileon.io/api/v1/tokens/generate', {
 		method: 'GET',
 		headers: {
 			'Authorization': `Bearer ${apiKey}`,
@@ -47,6 +47,7 @@ async function initChamaileonSdk() {
 		const accessToken = await getAccessToken({ apiKey })
 
 		const whitelabelConfig = {
+			environmentName: "sdk-staging",
 			locale: 'en',
 			urls: {
 				splashScreen: splashScreenUrl,
